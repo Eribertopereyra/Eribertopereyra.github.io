@@ -1,0 +1,214 @@
+/* ====================================================== */
+/* ===== VARIABLES DE TEMA Y ESTILOS GLOBALES =========== */
+/* ====================================================== */
+
+/* ':root' define las variables para el tema por defecto (oscuro) */
+:root {
+    --bg-color: #121212; /* Fondo principal oscuro */
+    --text-color: #ffffff; /* Texto principal blanco */
+    --primary-color: #ff0000; /* Color de acento (rojo) */
+    --card-bg: #1e1e1e; /* Fondo de las tarjetas */
+    --navbar-bg: rgba(20, 20, 20, 0.8); /* Fondo de navbar con transparencia */
+    --footer-bg: #1e1e1e;
+    --input-bg: #2a2a2a;
+    --border-glow: 0 0 15px rgba(255, 0, 0, 0.7); /* Efecto de brillo rojo */
+    --border-glow-light: 0 0 10px rgba(255, 0, 0, 0.3); /* Brillo para el tema claro */
+}
+
+/* Atributo para el tema claro */
+[data-theme="light"] {
+    --bg-color: #f9f9f9;
+    --text-color: #000000;
+    --primary-color: #ff0000;
+    --card-bg: #ffffff;
+    --navbar-bg: rgba(249, 249, 249, 0.85);
+    --footer-bg: #f1f1f1;
+    --input-bg: #e9e9e9;
+    --border-glow: 0 0 10px rgba(255, 0, 0, 0.3); /* Brillo más sutil para el tema claro */
+    --border-glow-light: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Transiciones suaves para todos los elementos */
+/* Esto hace que el cambio de tema sea fluido y agradable */
+body, .navbar, .card, .btn, .form-control, footer, .tech-icon {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 70px; /* Espacio para la navbar fija */
+}
+
+h2, h3, h5 {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* ====================================================== */
+/* =================== NAVEGACIÓN ======================= */
+/* ====================================================== */
+.navbar {
+    background-color: var(--navbar-bg);
+    backdrop-filter: blur(10px); /* Efecto de cristal esmerilado */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--text-color) !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* El botón de menú en móviles */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+.navbar-toggler-icon {
+    color: var(--text-color);
+}
+.navbar-toggler i {
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+
+/* Botón de cambio de tema */
+#theme-toggle {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+#theme-toggle:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
+/* ====================================================== */
+/* =================== SECCIONES ======================== */
+/* ====================================================== */
+
+/* Perfil */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Imagen circular */
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--border-glow);
+    animation: heartbeat 1.5s ease-in-out infinite; /* Animación de latido */
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.bio {
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Tarjetas (Cards) para Experiencia, Proyectos y Videos */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--primary-color);
+    box-shadow: var(--border-glow-light);
+    height: 100%;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave al pasar el cursor */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Eleva la tarjeta */
+    box-shadow: var(--border-glow); /* Intensifica el brillo */
+}
+
+.card-title, .card-text, .card-subtitle {
+    color: var(--text-color);
+}
+.card-subtitle {
+    opacity: 0.8;
+}
+
+/* Tecnologías */
+.tech-icon {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border:8px solid transparent;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tech-icon:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-color);
+}
+
+/* Colores específicos para cada tecnología */
+.html5 { color: #E44D26; }
+.css3 { color: #1572B6; }
+.js { color: #F7DF1E; }
+.bootstrap { color: #7952B3; }
+
+/* Botones y Formularios */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+    width: 120px;
+}
+
+.btn-primary:hover {
+    background-color:blue;
+    border-color: #d60000;
+    box-shadow: var(--border-glow);
+}
+
+.form-control {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+}
+
+.form-control::placeholder {
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+.form-control:focus {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border-color: var(--primary-color);
+    box-shadow: var(--border-glow);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+}
+
+.social-icon {
+    font-size: 1.8rem;
+    margin: 0 15px;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--primary-color);
+}
